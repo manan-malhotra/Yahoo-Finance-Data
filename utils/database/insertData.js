@@ -16,11 +16,12 @@ function saveToDatabase(data, fromCurrency, toCurrency) {
       high TEXT,
       low TEXT,
       close TEXT,
-      adjClose TEXT
+      adjClose TEXT,
+      PRIMARY KEY (fromCurrency, toCurrency, date)
     )`);
 
     const stmt = db.prepare(
-      `INSERT INTO HistoricalData (fromCurrency, toCurrency, date, open, high, low, close, adjClose) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`
+      `INSERT OR IGNORE INTO HistoricalData (fromCurrency, toCurrency, date, open, high, low, close, adjClose) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`
     );
     data.forEach((row) => {
       stmt.run(
