@@ -2,6 +2,9 @@ function getDates(period) {
   const to = new Date();
   const from = new Date();
   switch (period) {
+    case "1D":
+      from.setDate(from.getDate() - 1);
+      break;
     case "1W":
       from.setDate(from.getDate() - 7);
       break;

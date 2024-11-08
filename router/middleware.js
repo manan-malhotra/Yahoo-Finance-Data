@@ -12,7 +12,7 @@ const validateData = (req, res, next) => {
       "any.required": "'to' field is required",
     }),
     period: Joi.string()
-      .valid("1W", "1M", "3M", "6M", "1Y")
+      .valid("1D", "1W", "1M", "3M", "6M", "1Y")
       .required()
       .messages({
         "any.only": "'period' field must be one of [1W, 1M, 3M, 6M, 1Y]",

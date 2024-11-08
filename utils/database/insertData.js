@@ -35,7 +35,6 @@ function saveToDatabase(data, fromCurrency, toCurrency) {
         row.adjClose
       );
     });
-    console.log("Data saved to the database.");
     stmt.finalize();
   });
 
