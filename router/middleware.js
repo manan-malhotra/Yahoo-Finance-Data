@@ -19,7 +19,7 @@ const validateData = (req, res, next) => {
         "any.required": "'period' field is required",
       }),
   });
-  const { error } = schema.validate(req.body);
+  const { error } = schema.validate(req.query);
   if (error) {
     return res.status(400).json({ error: error.message });
   }

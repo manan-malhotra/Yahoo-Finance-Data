@@ -4,7 +4,8 @@ const { readDatabase } = require("../utils/database/readData");
 const { validateData } = require("../router/middleware");
 const router = express.Router();
 router.post("/forex-data", validateData, async (req, res) => {
-  const { from: fromCurrency, to: toCurrency, period } = req.body;
+  const { from: fromCurrency, to: toCurrency, period } = req.query;
+  console.log(fromCurrency);
   const timeStamp = getDates(period);
   try {
     const data = await readDatabase(
@@ -19,12 +20,10 @@ router.post("/forex-data", validateData, async (req, res) => {
     }
     res.json({ data });
   } catch (error) {
-    res
-      .status(500)
-      .json({
-        message: error.message,
-        error: "Facing some issues in fetching data.",
-      });
+    res.status(500).json({
+      message: error.message,
+      error: "Facing some issues in fetching data.",
+    });
   }
 });
 module.exports = router;
