@@ -9,6 +9,7 @@ function readDatabase(fromCurrency, toCurrency, from, to) {
   const fromDate = formatDate(from);
   const toDate = formatDate(to);
   console.log(fromDate);
+  console.log(toDate);
   return new Promise((resolve, reject) => {
     db.all(
       `SELECT * FROM HistoricalData WHERE fromCurrency = ? AND toCurrency = ? AND date between ? and ?`,
