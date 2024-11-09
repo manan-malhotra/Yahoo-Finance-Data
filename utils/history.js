@@ -28,7 +28,7 @@ async function history(url) {
     await browser.close();
     return data;
   } catch (error) {
-    console.error("Error scraping data");
+    console.error("Error scraping data:", error);
   }
 }
 
