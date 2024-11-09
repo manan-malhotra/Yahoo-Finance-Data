@@ -10,7 +10,6 @@ async function scrapeData(fromCurrency, toCurrency, from, to) {
       saveToDatabase(data, fromCurrency, toCurrency);
     } else {
       console.log("No data found to save.");
-      exit();
     }
   } catch (error) {
     console.log("Error in scraping data", error);
